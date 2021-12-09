@@ -48,7 +48,10 @@ public class WorkerIdHelp {
             throw new RuntimeException("获取workid失败");
         }
         log.info("获取workid成功,workid:{}", WORKER_ID);
-        TIMER.scheduleAtFixedRate(() -> redisTemplate.expire(redisKeyPrefix+WORKER_ID, 30, TimeUnit.SECONDS), 0, 10, TimeUnit.SECONDS);
+        TIMER.scheduleAtFixedRate(() ->
+                //直接用set 防止redis的过期情况
+                redisTemplate.opsForValue().set(redisKeyPrefix + WORKER_ID, ip, 30, TimeUnit.SECONDS), 0, 10, TimeUnit.SECONDS
+        );
     }
 
     public Integer getWorkerId() {
