@@ -6,7 +6,7 @@
 
     <groupId>com.lyzh</groupId>
     <artifactId>workerid-help</artifactId>
-    <version>1.0.6</version>
+    <version>1.0.7</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -50,6 +50,7 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                    <encoding>utf-8</encoding>
                 </configuration>
             </plugin>
         </plugins>
